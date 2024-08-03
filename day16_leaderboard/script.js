@@ -30,7 +30,6 @@ let activeButtons = ()=>{
             }
         })
     })
-
 }
 
 // console.log("10" - "5");  //5
