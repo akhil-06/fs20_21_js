@@ -1,3 +1,18 @@
+//Async Await
+// async await can be used with functions only
+async function jokeStartEnd() {
+  try {
+    let fetchJoke = await fetchRandomJoke();
+    let translatedJoke = await translteJoke(fetchJoke);
+    let postedJoke = await postJoke(translatedJoke);
+  } catch (e) {
+    console.log("Error", e);
+  }
+}
+
+
+
+
 // fetchRandomJoke((joke)=>{
 //     console.log(joke);
 //     translateJoke(joke,(translatedJoke)=>{
@@ -8,25 +23,21 @@
 //     })
 // })
 
-
-
-fetchRandomJoke()
-.then((joke)=>{
-    console.log(joke);
-    return translateJoke(joke);
-})
-.then((translatedJoke)=>{
-    console.log(translatedJoke);
-    return postJoke(translatedJoke);
-})
-.then(()=>{
-    console.log("joke posted");
-})
-.catch((err)=>{
-    console.log(err);
-})
-
-
+// fetchRandomJoke()
+// .then((joke)=>{
+//     console.log(joke);
+//     return translateJoke(joke);
+// })
+// .then((translatedJoke)=>{
+//     console.log(translatedJoke);
+//     return postJoke(translatedJoke);
+// })
+// .then(()=>{
+//     console.log("joke posted");
+// })
+// .catch((err)=>{
+//     console.log(err);
+// })
 
 let loggedIn = false;
 
