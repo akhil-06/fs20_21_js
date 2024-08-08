@@ -2,6 +2,7 @@
 // async await can be used with functions only
 async function jokeStartEnd() {
   try {
+    let res = fetch("");
     let fetchJoke = await fetchRandomJoke();
     let translatedJoke = await translteJoke(fetchJoke);
     let postedJoke = await postJoke(translatedJoke);

@@ -2,8 +2,8 @@ let div = document.querySelector("div");
 
 function onUi(data) {
   let moviesArr = data.description;
-//   console.log(moviesArr);
-  moviesArr.forEach((movie)=>{
+  //   console.log(moviesArr);
+  moviesArr.forEach((movie) => {
     // console.log(movie);
     let ele = `
     <p>${movie["#TITLE"]}</p>
@@ -11,18 +11,21 @@ function onUi(data) {
     `;
     console.log(ele);
     div.innerHTML += ele;
-  })
+  });
 }
 
 async function fetchNasaApi() {
-  let res = await fetch("https://search.imdbot.workers.dev/?q=pyar");
-
-  let data = await res.json();
-  console.log(data);
-  onUi(data);
+  try {
+    let res = await fetch("https:/search.imdbot.workers.dev/");
+    let data = await res.json();
+    console.log(data);
+    onUi(data);
+  } catch (error) {
+    console.log("Erorr:- " + error);
+  }
 }
 
-fetchNasaApi()
+fetchNasaApi();
 
 // let div = document.querySelector("div");
 
