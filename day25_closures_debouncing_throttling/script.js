@@ -1,22 +1,40 @@
-//Debouncing
-let counter = 0;
-function count(){
-    console.log("encountered "+ counter++);  
-}
-
-function myDebounceFunc(func, delay){
-    let timer;
-    console.log(timer);
-    
+//throittling
+let myThrottle = (fn, delay)=>{
     return function(){
-        if(timer) clearTimeout(timer);
-        timer = setTimeout(()=>{
-            func();
-        },delay)
+        document.getElementById("myId").disabled = true;
+        setTimeout(()=>{
+            fn(3,5);
+        }, delay)
     }
 }
 
-let betterFunction = myDebounceFunc(count, 2000)
+
+let newFun = myThrottle((a,b)=>{
+    document.getElementById("myId").disabled = false;
+    console.log("user has clicked the button!!!", a,b);
+}, 3000);
+
+
+
+//Debouncing
+// let counter = 0;
+// function count(){
+//     console.log("encountered "+ counter++);  
+// }
+
+// function myDebounceFunc(func, delay){
+//     let timer;
+//     console.log(timer);
+    
+//     return function(){
+//         if(timer) clearTimeout(timer);
+//         timer = setTimeout(()=>{
+//             func();
+//         },delay)
+//     }
+// }
+
+// let betterFunction = myDebounceFunc(count, 2000)
 
 
 
